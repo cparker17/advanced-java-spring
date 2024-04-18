@@ -25,10 +25,12 @@ public class CodingNomadConfiguration {
         return JDK.builder().name("OpenJDK").version("17").build();
     }
 
-    /*@Bean
-    public LapTop() {
-        Laptop laptop = new Laptop();
-        laptop.setModel("Mac");
-        laptop.setType("M1");
-    }*/
+    @Bean
+    public Desk desk() {
+        return Desk.builder().size("4 foot").type("wood").build();
+    }
+
+    @Bean Laptop laptop() {
+        return Laptop.builder().type("Mac").model("M1").build();
+    }
 }
