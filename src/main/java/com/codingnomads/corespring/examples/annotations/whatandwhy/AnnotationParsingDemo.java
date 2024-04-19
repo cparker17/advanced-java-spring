@@ -8,9 +8,11 @@ public class AnnotationParsingDemo {
         try {
             Class<AnnotationDemoService> annotationDemoService = AnnotationDemoService.class;
             for (Method method : annotationDemoService.getMethods()) {
-                if (method.isAnnotationPresent(ModernInfo.class)) {
+                if (method.isAnnotationPresent(ModernInfo.class) & method.isAnnotationPresent(SecondaryData.class )) {
                     ModernInfo modernInfo = method.getAnnotation(ModernInfo.class);
                     System.out.println("Info Received: " + modernInfo.info());
+                    SecondaryData secondaryData = method.getAnnotation(SecondaryData.class);
+                    System.out.println("Date Received: " + secondaryData.data());
                 }
             }
         } catch (Exception e) {
