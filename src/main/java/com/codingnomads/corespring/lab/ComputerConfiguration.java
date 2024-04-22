@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ComponentScan
 public class ComputerConfiguration {
+
     @Bean
     public Keyboard keyboard(){
         return new Keyboard();
