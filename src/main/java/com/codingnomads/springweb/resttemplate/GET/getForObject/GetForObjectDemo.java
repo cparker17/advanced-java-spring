@@ -1,6 +1,7 @@
 /* CodingNomads (C)2024 */
 package com.codingnomads.springweb.resttemplate.GET.getForObject;
 
+import com.codingnomads.springweb.resttemplate.GET.models.Excuse;
 import com.codingnomads.springweb.resttemplate.GET.models.QuoteTemplate;
 import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +24,9 @@ public class GetForObjectDemo {
     @Bean
     public CommandLineRunner run() throws Exception {
         return args -> {
-            QuoteTemplate[] randomQuote;
-            randomQuote = restTemplate.getForObject("https://zenquotes.io/api/random/", QuoteTemplate[].class);
-            System.out.println(Arrays.toString(randomQuote));
+            Excuse[] excuse;
+            excuse = restTemplate.getForObject("https://excuser-three.vercel.app/v1/excuse/office", Excuse[].class);
+            System.out.println(Arrays.toString(excuse));
 
             // submit more requests here
 
