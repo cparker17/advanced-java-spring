@@ -3,6 +3,7 @@ package com.codingnomads.springweb.resttemplate.PUT;
 
 import com.codingnomads.springweb.resttemplate.PUT.models.ResponseObject;
 import com.codingnomads.springweb.resttemplate.PUT.models.Task;
+import com.codingnomads.springweb.resttemplate.PUT.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -28,7 +29,7 @@ public class PutMain {
         return args -> {
 
             // use a valid task id
-            int taskId = 171;
+            int taskId = 3886;
 
             // request Task 5 from server
             ResponseObject responseObject = restTemplate.getForObject(
@@ -68,6 +69,20 @@ public class PutMain {
                     httpEntity,
                     ResponseObject.class);
             System.out.println(response.toString());
+
+            //lab work
+            int userId = 0;
+            User user = User.builder()
+                    .id(userId)
+                    .email("test@gmail.com")
+                    .first_name("John")
+                    .last_name("Doe")
+                    .build();
+            restTemplate.put("http://demo.codingnomads.co:8080/tasks_api/users/", user);
+
+            responseObject = restTemplate.getForObject("http://demo.codingnomads.co:8080/tasks_api/users/0",
+                    ResponseObject.class);
+            System.out.println(responseObject.toString());
         };
     }
 }
