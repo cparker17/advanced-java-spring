@@ -7,9 +7,9 @@ public class Activity {
     private String activity;
     private float accessibility;
     private String type;
-    private int participants;
+    private long participants;
     private float price;
     //String link;
-    private int key;
+    private long key;
 
 }
