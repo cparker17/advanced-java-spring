@@ -26,4 +26,16 @@ public class ConversionController {
     public String returnTheString() {
         return text;
     }
+
+    @RequestMapping(path = "/backwards")
+    public String returnStringBackwards() {
+        StringBuilder binary = new StringBuilder();
+        char[] chars = text.toCharArray();
+
+        for (int i = chars.length - 1; i >= 0; i--) {
+            binary.append("   ").append(Integer.toBinaryString(chars[i]));
+        }
+        return binary.toString();
+    }
+
 }
